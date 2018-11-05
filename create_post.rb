@@ -18,6 +18,11 @@ path = File.join(
   "#{now.strftime('%Y-%m-%d')}-#{name}.md"
 )
 
+if File.exist? path
+  puts path
+  exit 0
+end
+
 doc = "---\nlayout: post\ntitle: #{title}\ndate: #{now}\ntags:\n---\n\n"
 File.open(path, 'w') { |f| f.write(doc) }
 
