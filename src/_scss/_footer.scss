@@ -16,10 +16,6 @@ footer {
     color: $accent-grey;
   }
 
-  a:hover {
-    text-decoration: underline;
-  }
-
   #contact_links, ul.dot_list {
     display: inline-block;
     margin-top: 0px;
@@ -31,10 +27,24 @@ footer {
 
   // These definitions have to live in the #footer_inner block so they
   // override the a:visited style defined above.
-  #footer__email:hover    { color: $primary-color;  }
-  #footer__github:hover   { color: $github-grey;    }
-  #footer__twitter:hover  { color: $twitter-blue;   }
-  #footer__about:hover    { color: $primary-color;  }
-  #footer__cc:hover       { color: black;           }
-  #footer__mit:hover      { color: black;           }
+  #footer__cc:hover, #footer__mit:hover {
+    color: black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.45) 100%);
+    background-size: 1px 1px
+  }
+
+  #footer__email:hover, #footer__about:hover {
+    color: $primary-color;
+  }
+
+  #footer__github:hover {
+    color: $github-grey;
+    background-image: linear-gradient(rgba(23, 21, 21, 0.45) 0%, rgba(23, 21, 21, 0.45) 100%);
+    background-size: 1px 1px
+  }
+  #footer__twitter:hover {
+    color: $twitter-blue;
+    background-image: linear-gradient(rgba(85, 172, 238, 0.45) 0%, rgba(85, 172, 238, 0.45) 100%);
+    background-size: 1px 1px
+  }
 }
