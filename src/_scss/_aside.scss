@@ -1,0 +1,33 @@
+aside {
+  border-bottom: 2px solid $primary-color;
+  background-color: rgba(114,83,237,0.25);
+
+  #aside_inner {
+    @include central_element();
+
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;;
+
+    a:not([class]) {
+      background-image: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    #brand {
+      margin-bottom: 18px;
+      font-weight: normal;
+      font-size: 1.7em;
+      a {
+        text-decoration: none;
+      }
+    }
+
+    #aside_links ul {
+      padding-top:    0px;
+      padding-bottom: 0px;
+      margin-bottom:  10px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+$archive-left-column: 90px;
+$archive-gutter-column: 15px;
+
+.archive {
+  list-style-type: none;
+  padding-left: 0px !important;
+  margin-bottom: 1.2em;
+
+  .archive__date {
+    width: $archive-left-column;
+    float: left;
+    display: inline-block;
+    text-align: right;
+  }
+  .archive__url {
+    margin-left: $archive-left-column + $archive-gutter-column;
+  }
+
+  &.home {
+    li:not(:last-child) {
+      margin-bottom: 0.75em;
+    }
+  }
+}
