@@ -1,0 +1,17 @@
+title: "Alex’s notebook"
+email: "alex@alexwlchan.net"
+url: "https://notebook.alexwlchan.net"
+
+source: "src"
+destination: "_site"
+
+date_format: "%-d %B %Y"
+
+permalink: "/:year/:month/:title/"
+
+liquid:
+  error_mode: "strict"
+
+sass:
+  sass_dir: "_scss"
+  style: "compressed"
