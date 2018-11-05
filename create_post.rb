@@ -10,7 +10,11 @@ unless ARGV.length == 1
 end
 
 title = ARGV[0]
-name = title.downcase.gsub(/[^a-z]/, "-").gsub(/\-{2,}/, "-")
+name = title
+  .downcase
+  .gsub(/[^a-z]/, "-")
+  .gsub(/\-{2,}/, "-")
+  .chomp("-")
 
 out_dir = File.join("src", "_posts", now.strftime("%Y"))
 FileUtils.mkdir_p out_dir

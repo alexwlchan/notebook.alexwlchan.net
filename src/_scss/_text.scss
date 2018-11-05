@@ -47,15 +47,35 @@ h2 {
 }
 
 blockquote {
-  border-left: $sidebar-border-width solid $midtone-gray;
-  margin-left:  -$default-padding;
-  margin-right: 0px;
-  padding: 0px ($default-padding - $sidebar-border-width);
 
-  & > p {
-    font-style: italic;
-    color: #6f6f6f;
+  padding: ($default-padding / 2) ($default-padding * 0.6 - $sidebar-border-width);
+  line-height: $line-height * $code-scaling-factor * 1.08;
+
+  margin-left:  -$default-padding * 0.6;
+  margin-right: -$default-padding * 0.6;
+
+  background-color: rgba(114, 83, 237, 0.04);
+
+  border: $sidebar-border-width solid rgba(114, 83, 237, 0.45);
+  border-radius: 5px;
+
+  p:first-child {
+    margin-top: 0;
   }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+//  border-left: $sidebar-border-width solid $midtone-gray;
+//  margin-left:  -$default-padding;
+//  margin-right: 0px;
+//  padding: 0px ($default-padding - $sidebar-border-width);
+//
+//  & > p {
+////    font-style: italic;
+////    color: #6f6f6f;
+//  }
 
   @media print {
     color: $body-color;

@@ -35,12 +35,13 @@ module Jekyll
         |tag_name, post_count| [tag_name,
           {
             "size" => (size_min + post_count * size_increment).to_i,
-            "red" => "%02x" % (red["min"] + post_count * red_increment),
-            "green" => "%02x" % (green["min"] + post_count * green_increment),
-            "blue" => "%02x" % (blue["min"] + post_count * blue_increment),
+            "red" => "%02x" % [(red["min"] + post_count * red_increment), 255].min,
+            "green" => "%02x" % [(green["min"] + post_count * green_increment), 255].min,
+            "blue" => "%02x" % [(blue["min"] + post_count * blue_increment), 255].min,
           }
         ]
-      }]
+      }
+    ]
     end
   end
 end

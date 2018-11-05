@@ -26,10 +26,10 @@ title: Tags
 <a id="tag__{{ a }}"></a>
 {% endfor %}
 
-<h3 id="tag__{{ tag_name }}">{{ tag_name }}</h3>
+<h3 id="tag__{{ tag_name }}">{{ tag_name | smartify }}</h3>
 <ul>
   {% for p in posts %}
-  <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+  <li><a href="{{ p.url }}">{{ p.title | smartify }}</a></li>
   {% endfor %}
 </ul>
 {% endfor %}
