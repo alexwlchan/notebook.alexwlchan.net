@@ -15,6 +15,10 @@ aside {
       text-decoration: none;
     }
 
+    a:visited {
+      color: $primary-color;
+    }
+
     #brand {
       margin-bottom: 18px;
       font-weight: normal;
