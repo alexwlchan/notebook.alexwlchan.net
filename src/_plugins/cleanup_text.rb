@@ -20,8 +20,8 @@ module Jekyll
       # Get rid of the trailing space after the dollar in language-console
       # blocks.  The space is added in CSS and is unselectable.
       text = text.gsub(
-        "<span class=\"gp\">$</span> ",
-        "<span class=\"gp\">$</span>")
+        "<span class=\"w\">$ </span>",
+        "<span class=\"w\">$</span>")
 
       text
     end
