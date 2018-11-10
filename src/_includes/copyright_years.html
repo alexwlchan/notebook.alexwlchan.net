@@ -1,0 +1,15 @@
+{% assign first_year = "2018" %}
+
+{% assign curr_year = site.time | date: "%Y" %}
+{% if first_year == curr_year %}
+  {{ first_year }}
+{% else %}
+  {% assign first_year_prefix = first_year | slice: 0, 2 %}
+  {% assign curr_year_prefix = curr_year | slice: 0, 2 %}
+
+  {% if first_year_prefix == curr_year_prefix %}
+    {{ first_year }}&ndash;{{ site.time | date: "%y" }}
+  {% else %}
+    {{ first_year }}&ndash;{{ site.time | date: "%Y" }}
+  {% endif %}
+{% endif %}
