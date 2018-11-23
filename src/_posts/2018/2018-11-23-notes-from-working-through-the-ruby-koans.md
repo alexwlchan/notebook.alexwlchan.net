@@ -55,9 +55,9 @@ about_arrays.rb
 
 about_hashes.rb
 
-* Behaviour is opposite to Python: default hash lookup (`h[key]`) returns `nil` if the key doesn't exist.
-  To get an explicit `KeyError`, you need to use `h.fetch(key)`.
-* You can provide default values to get similar behaviour to Python's defaultdict:
+*   Behaviour is opposite to Python: default hash lookup (`h[key]`) returns `nil` if the key doesn't exist.
+    To get an explicit `KeyError`, you need to use `h.fetch(key)`.
+*   You can provide default values to get similar behaviour to Python's defaultdict:
 
     ```ruby
     Hash.new(default)
@@ -69,7 +69,7 @@ about_hashes.rb
 
 about_strings.rb:
 
-* You can be flexible about quoting strings if it's helpful, including multi-line strings.
+*   You can be flexible about quoting strings if it's helpful, including multi-line strings.
 
     ```ruby
     %{"I don't have the answer" he said}
@@ -77,24 +77,24 @@ about_strings.rb:
     %!"I don't have the answer" he said!
     ```
 
-* You also have `<<EOS … EOS` if that's helpful.
-* Strings in double quotes are interpolated; strings in single quotes aren't.
+*   You also have `<<EOS … EOS` if that's helpful.
+*   Strings in double quotes are interpolated; strings in single quotes aren't.
 
 about_symbols.rb:
 
-* A *symbol* is a single, internal, comparable object.
+*   A *symbol* is a single, internal, comparable object.
     For example: `:foo` is a symbol, and there's only ever one instance of `:foo`.
 
 about_regular_expressions.rb
 
-* As well as `^` and `$`, you can use `\A` and `\Z` for anchoring to the start and end, respectively.
-* Characters classes can be negated with capital letters.
-	For example, `\D` matches anything that isn't a digit.
-* Regex capture groups are stored in variables `$1, $2! …`.
+*   As well as `^` and `$`, you can use `\A` and `\Z` for anchoring to the start and end, respectively.
+*   Characters classes can be negated with capital letters.
+    For example, `\D` matches anything that isn't a digit.
+*   Regex capture groups are stored in variables `$1, $2! …`.
 
 about_methods.rb
 
-* Same syntax as Python for variable arguments:
+*   Same syntax as Python for variable arguments:
 
     ```ruby
     def method_with_variable_arguments(*args)
@@ -106,7 +106,7 @@ about_methods.rb
 
 about_keyword_arguments.rb
 
-* You can do default keyword arguments in Ruby!
+*   You can do default keyword arguments in Ruby!
     Like so:
 
     ```ruby
@@ -117,8 +117,8 @@ about_keyword_arguments.rb
 
 about_control_statements.rb
 
-* You can return a value from `break`.
-* Helper method for repeating an action:
+*   You can return a value from `break`.
+*   Helper method for repeating an action:
 
     ```ruby
     10.times
@@ -146,7 +146,7 @@ about_blocks.rb
 
 about_classes.rb
 
-* You can use `attr_reader` to automatically define read/write accessor methods for your class:
+*   You can use `attr_reader` to automatically define read/write accessor methods for your class:
 
     ```ruby
     class Dog
@@ -154,7 +154,7 @@ about_classes.rb
     end
     ```
 
-* The equivalent of `__init__` in Python is `initialize`.
+*   The equivalent of `__init__` in Python is `initialize`.
 
 about_open_classes.rb
 
