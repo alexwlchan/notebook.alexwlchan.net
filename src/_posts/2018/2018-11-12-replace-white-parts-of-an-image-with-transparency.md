@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Replace white parts of an image with transparency
+title: "ImageMagick: Replace white parts of an image with transparency"
 date: 2018-11-12 09:09:23 +0000
 tags: imagemagick
 ---
