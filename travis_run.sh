@@ -4,6 +4,7 @@ set -o errexit
 set -o nounset
 
 echo "*** Attempting to build the site"
+mkdir -p _site
 make build
 
 if [[ "$TRAVIS_EVENT_TYPE" == "pull_request" ]]
