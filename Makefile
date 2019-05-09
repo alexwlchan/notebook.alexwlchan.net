@@ -12,6 +12,7 @@ build:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
+		--env JEKYLL_UID=0 \
 		$(BUILD_IMAGE) jekyll build
 
 serve:
