@@ -22,6 +22,11 @@ layout: page
     <div class="archive__url">
       <a href="{{ post.url }}">{{ post.title | smartify }}</a> <br/>
       {{ post.summary | smartify }}
+
+      {% assign sorted_tags = post.tags | sort %}
+      {% for tag in sorted_tags %}
+        {{ tag }}
+      {% endfor %}
     </div>
   </div>
 </li>
