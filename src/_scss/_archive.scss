@@ -24,6 +24,8 @@
 
     a, a:visited {
       color: $accent-grey;
+      margin-left:  0.15rem;
+      margin-right: 0.15rem;
 
       &:hover {
         color: darken($accent-grey, 25%);
