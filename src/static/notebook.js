@@ -15,20 +15,18 @@ function filterToTag(t) {
     item.style.display = "none";
   }
 
-  if (typeof filtered_tags === 'undefined') {
-    filtered_tags = [t];
-  } else {
-    if (filtered_tags.includes(t)) {
-      return;
-    }
-
-    filtered_tags = filtered_tags.concat(t);
+  url = new URL(window.location.href);
+  if (!url.searchParams.getAll("tag").includes(t)) {
+    url.searchParams.append("tag", t);
+    window.history.pushState({path: url.href}, "", url.href);
   }
 
   filters = document.getElementById("notebook_filters");
   filters.style.display = "block";
 
-  filters.innerHTML += '<span id="tag_filter__' + t + '" class="tag_filter">' + t + '<a class="remove_tag" href="#" onclick=unfilterTag(' + "'" + t + "'" + ')>x</a></span>';
+  if (document.getElementById("tag_filter__" + t) === null) {
+    filters.innerHTML += '<span id="tag_filter__' + t + '" class="tag_filter">' + t + '<a class="remove_tag" href="#" onclick=unfilterTag(' + "'" + t + "'" + ')>x</a></span>';
+  }
 }
 
 function isUntagged(classList) {
@@ -57,9 +55,29 @@ function unfilterTag(t) {
   }
 
   document.getElementById("tag_filter__" + t).remove();
-  filtered_tags = filtered_tags.filter(function(it) { return it !== t });
 
-  if (filtered_tags.length == 0) {
+  var url = new URL(window.location.href);
+  existingTags = url.searchParams.getAll("tag");
+  url.searchParams.delete("tag");
+  for (i = 0; i < existingTags.length; i++) {
+    if (existingTags[i] !== t) {
+      url.searchParams.append("tag", existingTags[i]);
+    }
+  }
+  window.history.pushState({path: url.href}, "", url.href);
+
+  if (url.searchParams.getAll("tag").length == 0) {
     document.getElementById("notebook_filters").style.display = "none";
   }
+}
+
+window.onload = function() {
+  params = new URLSearchParams(window.location.search);
+
+  tags = params.getAll("tag");
+  for (i = 0; i < tags.length; i++) {
+    filterToTag(tags[i]);
+  }
+
+  filtered_tags = tags;
 }
