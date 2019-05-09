@@ -5,19 +5,22 @@ RSYNC_USER = alexwlchan
 RSYNC_DIR = /home/alexwlchan/sites/notebook.alexwlchan.net
 
 ROOT = $(shell git rev-parse --show-toplevel)
-SRC = $(ROOT)/src
 DST = $(ROOT)/_site
 
 
 build:
-	docker run --volume $(ROOT):/site --tty --rm $(BUILD_IMAGE) build
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		$(BUILD_IMAGE) jekyll build
 
 serve:
 	docker run \
 		--publish 6060:6060 \
-		--volume $(ROOT):/site \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
 		--tty --rm $(BUILD_IMAGE) \
-		serve --host "0.0.0.0" --port 6060 --watch --drafts
+		jekyll serve --host "0.0.0.0" --port 6060 --watch --drafts
 
 deploy: build
 	docker run --rm --tty \
@@ -29,9 +32,7 @@ deploy: build
 		--verbose \
 		--compress \
 		--delete \
-		--exclude=".well-known" \
 		--exclude=".DS_Store" \
-		--exclude="attic/" \
 		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
 		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
