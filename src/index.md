@@ -4,11 +4,23 @@ layout: page
 
 ## All entries
 
-<ul class="archive home">
+<style>
+  li[class^="not_tagged_with"] {
+    display: none;
+  }
+</style>
+
+<script>
+  function filterToTag(t) {
+
+  }
+</script>
+
+<ul class="notebook_index">
 {% for post in site.posts %}
-<li>
+<li class="{% for tag in post.tags %}tagged_with_{{ tag }} {% endfor %}">
   <div>
-    <div class="archive__date">
+    <div class="notebook_index__date">
       {% assign post_date = post.date | date: "%-d %b %y" %}
 
       {% if prev_post_date == nil %}
@@ -19,7 +31,7 @@ layout: page
 
       {% assign prev_post_date = post_date %}
     </div>
-    <div class="archive__url">
+    <div class="notebook_index__url">
       <a href="{{ post.url }}">{{ post.title | smartify }}</a> <br/>
       {{ post.summary | smartify }}
 

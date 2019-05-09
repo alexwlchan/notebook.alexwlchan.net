@@ -1,26 +1,24 @@
-$archive-left-column: 75px;
-$archive-gutter-column: 15px;
+$index-left-column: 75px;
+$index-gutter-column: 15px;
 
-.archive {
+.notebook_index {
   list-style-type: none;
   padding-left: 0px !important;
   margin-bottom: 1.2em;
 
-  .archive__date {
-    width: $archive-left-column;
+  .notebook_index__date {
+    width: $index-left-column;
     float: left;
     display: inline-block;
     text-align: right;
     font-size: 75%;
     color: $accent-grey;
   }
-  .archive__url {
-    margin-left: $archive-left-column + $archive-gutter-column;
+  .notebook_index__url {
+    margin-left: $index-left-column + $index-gutter-column;
   }
 
-  &.home {
-    li:not(:last-child) {
-      margin-bottom: 0.75em;
-    }
+  li:not(:last-child) {
+    margin-bottom: 0.75em;
   }
 }
