@@ -20,3 +20,21 @@
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+
+@mixin purple_box() {
+  background-color: rgba(114, 83, 237, 0.04);
+  border: $sidebar-border-width solid rgba(114, 83, 237, 0.45);
+  border-radius: 5px;
+}
+
+@mixin fullwidth_box() {
+  padding: ($default-padding / 2) ($default-padding * 0.6 - $sidebar-border-width);
+  line-height: $line-height * $code-scaling-factor * 1.08;
+
+  margin-left:  -$default-padding * 0.6;
+  margin-right: -$default-padding * 0.6;
+
+  @media screen and (max-width: $max-width + $default-padding * 3) {
+    margin-left: 0px;
+  }
+}

@@ -1,10 +1,7 @@
 code, pre {
-  background-color: rgba(114, 83, 237, 0.04);
+  @include purple_box();
   font-family: $mono-font;
   overflow-x: auto;
-
-  border: $sidebar-border-width solid rgba(114, 83, 237, 0.45);
-  border-radius: 5px;
 }
 
 code {
@@ -24,15 +21,7 @@ code {
 }
 
 pre {
-  padding: ($default-padding / 2) ($default-padding * 0.6 - $sidebar-border-width);
-  line-height: $line-height * $code-scaling-factor * 1.08;
-
-  margin-left:  -$default-padding * 0.6;
-  margin-right: -$default-padding * 0.6;
-
-  @media screen and (max-width: $max-width + $default-padding * 3) {
-    margin-left: 0px;
-  }
+  @include fullwidth_box();
 
   // This ensures that code blocks don't get blown up to big sizes
   // on iPhone displays.
