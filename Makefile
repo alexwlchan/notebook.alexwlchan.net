@@ -1,4 +1,4 @@
-BUILD_IMAGE = alexwlchan/notebook
+BUILD_IMAGE = jekyll/jekyll:3.8
 
 RSYNC_HOST = 139.162.244.147
 RSYNC_USER = alexwlchan
@@ -9,25 +9,10 @@ SRC = $(ROOT)/src
 DST = $(ROOT)/_site
 
 
-$(ROOT)/.docker/build: Dockerfile install_jekyll.sh Gemfile.lock
-	docker build --tag $(BUILD_IMAGE) .
-	mkdir -p .docker
-	touch .docker/build
-
-.docker/build: $(ROOT)/.docker/build
-
-Gemfile.lock: Gemfile
-	docker run \
-		--volume $(ROOT):/site \
-		--workdir /site \
-		--tty --rm $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
-		bundle lock --update
-
-
-build: .docker/build
+build:
 	docker run --volume $(ROOT):/site --tty --rm $(BUILD_IMAGE) build
 
-serve: .docker/build
+serve:
 	docker run \
 		--publish 6060:6060 \
 		--volume $(ROOT):/site \
