@@ -2,7 +2,7 @@
 layout: post
 title: "Scala: Iterating over the newlines of an InputStream"
 date: 2019-05-07 17:38:01 +0100
-tags:
+tags: scala snippets
 ---
 
 ```scala
