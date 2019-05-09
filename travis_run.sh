@@ -19,7 +19,8 @@ openssl aes-256-cbc \
   -in id_rsa.enc \
   -out id_rsa -d
 
-echo "*** Uploading published site to Linode"
 chmod 400 id_rsa
 mv id_rsa ~/.ssh/id_rsa
+
+echo "*** Uploading published site to Linode"
 make deploy
