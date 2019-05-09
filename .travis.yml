@@ -7,7 +7,7 @@ services:
 
 branches:
   only:
-    - master
+    - "live"
 
 script:
   - ./travis_run.sh
