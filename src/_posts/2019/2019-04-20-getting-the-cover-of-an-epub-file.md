@@ -2,7 +2,7 @@
 layout: post
 title: "Getting the cover of an epub file"
 date: 2019-04-20 21:24:30
-tags:
+tags: epub
 ---
 
 The preview-generator library doesn't have support for epub files, so I have to create thumbnails for those separately.
